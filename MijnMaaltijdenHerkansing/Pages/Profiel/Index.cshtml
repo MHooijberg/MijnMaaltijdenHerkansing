@@ -1,0 +1,55 @@
+﻿@page "{uid?}"
+@model MyMeals.Pages.ProfielModel
+@{
+    ViewData["Title"] = "Profiel";
+}
+
+<div class="container">
+    <div class="row">
+        
+            <div  class="col-6 p-3 rounded">
+                @if (@*User.Identity.IsAuthenticated && User.Identity.Name == null*@ true)
+{
+    <button class="btn btn-success float-right">Aanpassen</button>
+}
+                <div class="row">
+                    <div class="col-4">
+                        <img class="mx-auto d-block" style="width: 100px; border: 6px solid black; border-radius: 50%;" src="~/img/pfp/ProfilePictureTemplate.png" />
+                    </div>
+                    <div class="col-8 align-self-center">
+                        <h1>@Html.DisplayFor(model => model.Gebruiker.ProfielNaam)</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <ul class="list-unstyled ml-4" style="font-size: larger">
+                            <li><i class="p-2 text-success fas fa-map-marker-alt"></i>@Html.DisplayFor(model => model.Gebruiker.Adres.Straat) @Html.DisplayFor(model => model.Gebruiker.Adres.Huisnummer)</li>
+                            <li><i class="p-2 text-success far fa-envelope"></i>@Html.DisplayFor(model => model.Gebruiker.Email)</li>
+                            <li><i class="p-2 text-success fas fa-phone-alt"></i>@Html.DisplayFor(model => model.Gebruiker.Telefoonnummer)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h3>Over Gebruiker</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        <div class="col-6">
+            <div class="Titel">
+                <h1>Favoriete Gerecht</h1>
+                </div>
+                <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+                    <div class="col-Gerecht m-2">
+                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="mw-100 rounded" type="submit" onclick="" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-Beschrijving m-2">
+                        <h7>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at sagittis tortor, porta lacinia massa. Cras eleifend</h7>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
