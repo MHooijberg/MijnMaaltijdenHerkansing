@@ -11,28 +11,28 @@ namespace MijnMaaltijdenHerkansing.Pages
     public class ProfielModel : PageModel
     {
         private readonly MijnMaaltijdenHerkansing.Data.MijnMaaltijdenHerkansingContext _context;
-        //[BindProperty]
-        //public Models.Gebruiker Gebruiker { get; set; }
+        [BindProperty]
+        public Models.Gebruiker Gebruiker { get; set; }
 
         public ProfielModel(MijnMaaltijdenHerkansing.Data.MijnMaaltijdenHerkansingContext context)
         {
             _context = context;
         }
 
-        public async Task<IActionResult> OnGetAsync(int? uid)
+        public async Task<IActionResult> OnGetAsync(string uid)
         {
             if (uid == null)
             {
                 return NotFound();
             }
 
-            //Gebruiker = await _context.Gebruikers
-            //    .Include(g => g.Adres).FirstOrDefaultAsync(m => m.GebruikerId == uid);
+            Gebruiker = await _context.Gebruikers
+                .Include(g => g.Adres).FirstOrDefaultAsync(m => m.Id == uid);
 
-            //if (Gebruiker == null)
-            //{
-            //    return NotFound();
-            //}
+            if (Gebruiker == null)
+            {
+                return NotFound();
+            }
             return Page();
 
             //DefaultValues();

@@ -19,7 +19,7 @@ namespace MijnMaaltijdenHerkansing.Pages
 
         public void OnGet()
         {
-            //Posts = _context.Posts.ToList();
+            Posts = _context.Posts.ToList();
         }
 
         //public void OnGet()

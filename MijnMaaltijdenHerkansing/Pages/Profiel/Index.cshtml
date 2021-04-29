@@ -17,16 +17,16 @@
                         <img class="mx-auto d-block" style="width: 100px; border: 6px solid black; border-radius: 50%;" src="~/img/pfp/ProfilePictureTemplate.png" />
                     </div>
                     <div class="col-8 align-self-center">
-                        <h1>@*@Html.DisplayFor(model => model.Gebruiker.ProfielNaam)*@</h1>
+                        <h1>@Html.DisplayFor(model => model.Gebruiker.UserName)</h1>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        @*<ul class="list-unstyled ml-4" style="font-size: larger">
+                        <ul class="list-unstyled ml-4" style="font-size: larger">
                             <li><i class="p-2 text-success fas fa-map-marker-alt"></i>@Html.DisplayFor(model => model.Gebruiker.Adres.Straat) @Html.DisplayFor(model => model.Gebruiker.Adres.Huisnummer)</li>
                             <li><i class="p-2 text-success far fa-envelope"></i>@Html.DisplayFor(model => model.Gebruiker.Email)</li>
-                            <li><i class="p-2 text-success fas fa-phone-alt"></i>@Html.DisplayFor(model => model.Gebruiker.Telefoonnummer)</li>
-                        </ul>*@
+                            <li><i class="p-2 text-success fas fa-phone-alt"></i>@Html.DisplayFor(model => model.Gebruiker.PhoneNumber)</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="row">
