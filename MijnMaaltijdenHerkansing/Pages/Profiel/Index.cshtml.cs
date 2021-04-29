@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace MyMeals.Pages
+namespace MijnMaaltijdenHerkansing.Pages
 {
     public class ProfielModel : PageModel
     {
-        private readonly MyMeals.Data.MijnMaaltijdContext _context;
-        [BindProperty]
-        public Models.Gebruiker Gebruiker { get; set; }
+        private readonly MijnMaaltijdenHerkansing.Data.MijnMaaltijdenHerkansingContext _context;
+        //[BindProperty]
+        //public Models.Gebruiker Gebruiker { get; set; }
 
-        public ProfielModel(MyMeals.Data.MijnMaaltijdContext context)
+        public ProfielModel(MijnMaaltijdenHerkansing.Data.MijnMaaltijdenHerkansingContext context)
         {
             _context = context;
         }
@@ -26,13 +26,13 @@ namespace MyMeals.Pages
                 return NotFound();
             }
 
-            Gebruiker = await _context.Gebruikers
-                .Include(g => g.Adres).FirstOrDefaultAsync(m => m.GebruikerId == uid);
+            //Gebruiker = await _context.Gebruikers
+            //    .Include(g => g.Adres).FirstOrDefaultAsync(m => m.GebruikerId == uid);
 
-            if (Gebruiker == null)
-            {
-                return NotFound();
-            }
+            //if (Gebruiker == null)
+            //{
+            //    return NotFound();
+            //}
             return Page();
 
             //DefaultValues();

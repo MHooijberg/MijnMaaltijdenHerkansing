@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MijnMaaltijdenHerkansing.Data;
+using MijnMaaltijdenHerkansing.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +27,13 @@ namespace MijnMaaltijdenHerkansing
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddDbContext<MijnMaaltijdenHerkansingContext>(options =>
+                    options.UseSqlServer(
+                        Configuration.GetConnectionString("MijnMaaltijdenHerkansingContextConnection")));
+
+            services.AddDefaultIdentity<Gebruiker>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<MijnMaaltijdenHerkansingContext>();
+            services.AddDatabaseDeveloperPageExceptionFilter();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

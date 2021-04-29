@@ -5,21 +5,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MyMeals.Pages
+namespace MijnMaaltijdenHerkansing.Pages
 {
     public class MaaltijdenModel : PageModel
     {
-        private readonly MyMeals.Data.MijnMaaltijdContext _context;
+        private readonly MijnMaaltijdenHerkansing.Data.MijnMaaltijdenHerkansingContext _context;
         [BindProperty]
         public List<Models.Post> Posts { get; set; }
-        public MaaltijdenModel(MyMeals.Data.MijnMaaltijdContext context)
+        public MaaltijdenModel(MijnMaaltijdenHerkansing.Data.MijnMaaltijdenHerkansingContext context)
         {
             _context = context;
         }
 
         public void OnGet()
         {
-            Posts = _context.Posts.ToList();
+            //Posts = _context.Posts.ToList();
         }
 
         //public void OnGet()

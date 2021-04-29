@@ -5,8 +5,9 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MijnMaaltijdenHerkansing.Areas.Identity.Data;
+//using MijnMaaltijdenHerkansing.Areas.Identity.Data;
 using MijnMaaltijdenHerkansing.Data;
+using MijnMaaltijdenHerkansing.Models;
 
 [assembly: HostingStartup(typeof(MijnMaaltijdenHerkansing.Areas.Identity.IdentityHostingStartup))]
 namespace MijnMaaltijdenHerkansing.Areas.Identity
@@ -15,14 +16,14 @@ namespace MijnMaaltijdenHerkansing.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
-                services.AddDbContext<MijnMaaltijdenHerkansingContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("MijnMaaltijdenHerkansingContextConnection")));
+            //builder.ConfigureServices((context, services) => {
+            //    services.AddDbContext<MijnMaaltijdenHerkansingContext>(options =>
+            //        options.UseSqlServer(
+            //            context.Configuration.GetConnectionString("MijnMaaltijdenHerkansingContextConnection")));
 
-                services.AddDefaultIdentity<Gebruiker>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<MijnMaaltijdenHerkansingContext>();
-            });
+            //    services.AddDefaultIdentity<Gebruiker>(options => options.SignIn.RequireConfirmedAccount = true)
+            //        .AddEntityFrameworkStores<MijnMaaltijdenHerkansingContext>();
+            //});
         }
     }
 }

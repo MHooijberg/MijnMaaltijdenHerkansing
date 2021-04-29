@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyMeals.Pages
+namespace MijnMaaltijdenHerkansing.Pages
 {
     public class IndexModel : PageModel
     {

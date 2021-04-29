@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MijnMaaltijdenHerkansing.Areas.Identity.Data;
+//using MijnMaaltijdenHerkansing.Areas.Identity.Data;
+using MijnMaaltijdenHerkansing.Models;
 
 namespace MijnMaaltijdenHerkansing.Data
 {
@@ -15,6 +16,11 @@ namespace MijnMaaltijdenHerkansing.Data
             : base(options)
         {
         }
+
+        public DbSet<Gebruiker> Gebruikers { get; set; }
+        public DbSet<Adres> Adressen { get; set; }
+        public DbSet<Maaltijd> Maaltijden { get; set; }
+        public DbSet<Post> Posts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

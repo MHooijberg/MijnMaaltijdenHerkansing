@@ -10,11 +10,12 @@ namespace MijnMaaltijdenHerkansing.Pages
 {
     public class ContactModel : PageModel
     {
-        private readonly ContactDbContext _context;
+        //TODO: Add contact function
+        //private readonly ContactDbContext _context;
 
-        public ContactModel(ContactDbContext context)
+        public ContactModel(/*ContactDbContext context*/)
         {
-            _context = context;
+            //_context = context;
         }
 
         public IActionResult OnGet()
@@ -22,8 +23,8 @@ namespace MijnMaaltijdenHerkansing.Pages
             return Page();
         }
 
-        [BindProperty]
-        public ContactRequest ContactRequest { get; set; }
+        //[BindProperty]
+        //public ContactRequest ContactRequest { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -32,8 +33,8 @@ namespace MijnMaaltijdenHerkansing.Pages
                 return Page();
             }
 
-            _context.ContactRequests.Add(ContactRequest);
-            await _context.SaveChangesAsync();
+            //_context.ContactRequests.Add(ContactRequest);
+            //await _context.SaveChangesAsync();
 
             return RedirectToPage("./Contact");
         }
