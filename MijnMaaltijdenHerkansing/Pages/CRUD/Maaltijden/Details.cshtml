@@ -1,0 +1,56 @@
+﻿@page
+@model MijnMaaltijdenHerkansing.Pages.CRUD.Maaltijden.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Maaltijd</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Maaltijd.Naam)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Maaltijd.Naam)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Maaltijd.Beschrijving)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Maaltijd.Beschrijving)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Maaltijd.Ingredienten)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Maaltijd.Ingredienten)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Maaltijd.IsVegatarisch)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Maaltijd.IsVegatarisch)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Maaltijd.Afbeelding)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Maaltijd.Afbeelding)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Maaltijd.Gebruiker)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Maaltijd.Gebruiker.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Maaltijd.MaaltijdId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

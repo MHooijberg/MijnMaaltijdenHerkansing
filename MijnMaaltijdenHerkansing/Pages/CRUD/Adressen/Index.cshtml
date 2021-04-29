@@ -1,0 +1,55 @@
+﻿@page
+@model MijnMaaltijdenHerkansing.Pages.CRUD.Adressen.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres[0].Straat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres[0].Huisnummer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres[0].Postcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres[0].Woonplaats)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Adres) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Straat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Huisnummer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Woonplaats)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AdresId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AdresId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AdresId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

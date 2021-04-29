@@ -1,0 +1,51 @@
+﻿@page
+@model MijnMaaltijdenHerkansing.Pages.CRUD.Adressen.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Adres</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Adres.AdresId" />
+            <div class="form-group">
+                <label asp-for="Adres.Straat" class="control-label"></label>
+                <input asp-for="Adres.Straat" class="form-control" />
+                <span asp-validation-for="Adres.Straat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adres.Huisnummer" class="control-label"></label>
+                <input asp-for="Adres.Huisnummer" class="form-control" />
+                <span asp-validation-for="Adres.Huisnummer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adres.Postcode" class="control-label"></label>
+                <input asp-for="Adres.Postcode" class="form-control" />
+                <span asp-validation-for="Adres.Postcode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adres.Woonplaats" class="control-label"></label>
+                <input asp-for="Adres.Woonplaats" class="form-control" />
+                <span asp-validation-for="Adres.Woonplaats" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

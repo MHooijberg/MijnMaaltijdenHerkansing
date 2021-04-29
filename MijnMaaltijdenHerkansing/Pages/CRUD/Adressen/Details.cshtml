@@ -1,0 +1,44 @@
+﻿@page
+@model MijnMaaltijdenHerkansing.Pages.CRUD.Adressen.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Adres</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Adres.Straat)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Adres.Straat)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Adres.Huisnummer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Adres.Huisnummer)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Adres.Postcode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Adres.Postcode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Adres.Woonplaats)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Adres.Woonplaats)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Adres.AdresId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
