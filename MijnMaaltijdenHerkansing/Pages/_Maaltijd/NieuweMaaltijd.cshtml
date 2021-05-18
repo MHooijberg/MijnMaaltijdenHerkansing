@@ -10,9 +10,35 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <h1>Nieuwe Maaltijd</h1>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<h1>@Html.DisplayFor(model => model.Post.Naam)</h1>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="mw-100 rounded" type="submit" onclick="" />
+				</div>
+				<div class="row">
+					<div class="col">
+						@*@if (model.Post.IsBevroren)
+						{
+						<p>Dit is ingevroren!</p>
+						}
+						else {*@
+						<p>Dit is vers!</p>
+						@* }*@
+					</div>
+					<div class="col">
+						<h3>@Html.DisplayFor(model => model.Post.BereidOp)</h3>
+					</div>
+					<div class="col">
+						<h3>@Html.DisplayFor(model => model.Post.HoudbaarheidsDatum)</h3>
+					</div>
+				</div>
+				</div>
+			<div class="col">
+				<p>@Html.DisplayFor(model => model.Post.Beschrijving)</p>
+			</div>
+		</div>
 </body>
