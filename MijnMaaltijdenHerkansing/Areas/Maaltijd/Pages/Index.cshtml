@@ -117,15 +117,13 @@
                 </form>
                 @*<img class="mx-5 d-block" style="width: 30px; border: solid black; border-radius: 50%;" src="~/img/pfp/ProfilePictureTemplate.png" />*@
             </div>
-            <div class="col">
+            @* AANPASKNOP
+                <div class="col">
                 <button class="rounded aanpasbutton" style="justify-content:end" type="button" onclick=""> Aanpassen </button>
-            </div>
+            </div>*@
             <div class="col">
                 <h6 class="font-weight-bold">Populaire gerechten</h6>
             </div>
-        </div>
-        <div class="row">
-            <h10 style="color:grey">@Model.post.Beschrijving</h10>
         </div>
         <div class="row">
             <div class="col-sm-4" style="background-color:gray">
@@ -153,7 +151,7 @@
             </div>
             <div class="col-sm-3">
                 <h3>€5,00</h3>
-                <h10>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h10>
+                <h10>@Model.post.Beschrijving</h10>
             </div>
             <div class="col-lg-2" align-items:flex-end;">
             </div>
@@ -168,6 +166,11 @@
                 <div class="row-lg-2" style="background-color:gray; align-items:flex-end; width:184px;">
                     <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" type="submit" onclick="" />
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="rounded aanpasbutton" type="button" onclick=""> Bestel </button>
             </div>
         </div>
         <div class="container">

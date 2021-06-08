@@ -55,9 +55,10 @@
             {
                 <div class="col-sm-4 mb-4">
                     <div class="card" style="width: 18rem;">
-                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="card-img-top mw-100" type="submit" />
-                        <div class="card-body">
-                            <a id="maaltijd" asp-area="Maaltijd" asp-page="/Index" asp-route-id="@item.PostId" title="Maaltijd">@item.Naam</a>
+                        <a asp-area="Maaltijd" asp-page="/Index" asp-route-id="@item.PostId">
+                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="card-img-top mw-100" type="submit"/>
+                        </a>
+                        <div class="card-body">     
                             <h7>@item.Beschrijving</h7>
                         </div>
                     </div>
