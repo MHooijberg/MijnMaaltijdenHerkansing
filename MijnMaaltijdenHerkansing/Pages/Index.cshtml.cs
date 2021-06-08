@@ -10,16 +10,17 @@ namespace MijnMaaltijdenHerkansing.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
+        private readonly MijnMaaltijdenHerkansing.Data.MijnMaaltijdenHerkansingContext _context;
+        [BindProperty]
+        public List<Models.Post> Posts { get; set; }
+        public IndexModel(MijnMaaltijdenHerkansing.Data.MijnMaaltijdenHerkansingContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public void OnGet()
         {
-
+            Posts = _context.Posts.ToList();
         }
     }
 }
