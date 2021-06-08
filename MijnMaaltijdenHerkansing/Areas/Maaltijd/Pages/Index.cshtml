@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{postId?}"
 @model MijnMaaltijdenHerkansing.Pages.MaaltijdModel
 @{
     ViewData["Title"] = "Maaltijd"; // Naam van het gerecht (moet wel gesaniteerd worden)
@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" />
 
     <style>
+        .aanpasbutton {
+            background-color: #22863a;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            margin: 5px;
+            width: 120px;
+            height: 30px;
+        }
+
         .container {
             padding: 10px;
         }
@@ -97,37 +107,26 @@
 </head>
 <body>
     <div class="container">
-        <br />
         <div class="row">
-            <h1>Titel</h1>
-
-            <div class="col-sm-2"></div>
-            <div class="col-sm-2">
-               <il>
-                    <button class="rounded border-0 bg-success" style="justify-content:end" type="button" onclick=""> Aanpassen </button>
-                </il>
+            <div class="col">
+                <h1>@Model.post.Naam</h1>
             </div>
-            <div class="col-sm-1"></div>
-            <div class="col-sm-1"></div>
-            <div class="row text-center">
-                <div class="col-sm-2">
-                    <img class="mx-5 d-block" style="width: 30px; border: solid black; border-radius: 50%;" src="~/img/pfp/ProfilePictureTemplate.png" />
-                </div>
-                <div class="col-sm-9">
-                    <h7 style="margin:3px;">Gebruiker</h7>
-                </div>
+            <div class="col">
+                <form id="GebruikerForm" class="form-inline" asp-area="Profile" asp-page="/Index" asp-route-id="@Model.post.GebruikerId">
+                    <button id="Gebruiker" type="submit" class="btn btn-link text-dark">Gebruiker</button>
+                </form>
+                @*<img class="mx-5 d-block" style="width: 30px; border: solid black; border-radius: 50%;" src="~/img/pfp/ProfilePictureTemplate.png" />*@
             </div>
-            <div class="col-sm-1"></div>
-            <div class="row text-left">
-                <div class="col-sm-5">
-                    <h6 class="font-weight-bold">Populaire gerechten</h6>
-                </div>
+            <div class="col">
+                <button class="rounded aanpasbutton" style="justify-content:end" type="button" onclick=""> Aanpassen </button>
+            </div>
+            <div class="col">
+                <h6 class="font-weight-bold">Populaire gerechten</h6>
             </div>
         </div>
         <div class="row">
-            <h10 style="color:grey">Beschrijving</h10>
+            <h10 style="color:grey">@Model.post.Beschrijving</h10>
         </div>
-        <br />
         <div class="row">
             <div class="col-sm-4" style="background-color:gray">
                 <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" />
@@ -153,7 +152,7 @@
                 </div>
             </div>
             <div class="col-sm-3">
-                <h3>Prijs</h3>
+                <h3>€5,00</h3>
                 <h10>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h10>
             </div>
             <div class="col-lg-2" align-items:flex-end;">
@@ -192,16 +191,7 @@
                 <div class="col-sm-3">
                     <h5>Ingrediënten</h5>
                     <h10>
-                        -------------------------------<br />
-                        -------------------------------<br />
-                        -------------------------------<br />
-                        -------------------------------<br />
-                        -------------------------------<br />
-                        -------------------------------<br />
-                        -------------------------------<br />
-                        <br />
-                        <br />
-                        <br />
+                        @Model.maaltijd.Ingredienten
                     </h10>
                 </div>
                 <div class="col-lg-2" style="align-items:flex-end;">

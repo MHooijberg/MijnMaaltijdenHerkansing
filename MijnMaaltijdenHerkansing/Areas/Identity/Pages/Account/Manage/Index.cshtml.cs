@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MijnMaaltijdenHerkansing.Data;
 using MijnMaaltijdenHerkansing.Models;
 
 namespace MijnMaaltijdenHerkansing.Areas.Identity.Pages.Account.Manage
@@ -14,6 +15,8 @@ namespace MijnMaaltijdenHerkansing.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<Gebruiker> _userManager;
         private readonly SignInManager<Gebruiker> _signInManager;
+
+        MijnMaaltijdenHerkansingContext mijnMaaltijdenHerkansingContext { get; set; }
 
         public IndexModel(
             UserManager<Gebruiker> userManager,
@@ -64,6 +67,10 @@ namespace MijnMaaltijdenHerkansing.Areas.Identity.Pages.Account.Manage
             var userName = await _userManager.GetUserNameAsync(user);
 
             Username = userName;
+
+            //List<Adres> adressen = mijnMaaltijdenHerkansingContext.Adressen.ToList();
+
+            //user.Adres = mijnMaaltijdenHerkansingContext.Adressen.Where(x => x.AdresId == user.AdresId).First();
 
             Input = new InputModel
             {

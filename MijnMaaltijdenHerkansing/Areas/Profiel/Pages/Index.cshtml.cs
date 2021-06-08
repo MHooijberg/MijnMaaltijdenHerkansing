@@ -2,42 +2,54 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using MijnMaaltijdenHerkansing.Data;
+using MijnMaaltijdenHerkansing.Models;
 
 namespace MijnMaaltijdenHerkansing.Pages
 {
     public class ProfielModel : PageModel
     {
-        private readonly MijnMaaltijdenHerkansing.Data.MijnMaaltijdenHerkansingContext _context;
-        [BindProperty]
-        public Models.Gebruiker Gebruiker { get; set; }
+        private readonly MijnMaaltijdenHerkansingContext _context;
 
-        public ProfielModel(MijnMaaltijdenHerkansing.Data.MijnMaaltijdenHerkansingContext context)
+        [BindProperty]
+        public Guid? _Id { get; set; }
+
+        [BindProperty]
+        public Gebruiker Gebruiker { get; set; }
+
+        private readonly UserManager<IdentityUser> _userManager;
+
+        public ProfielModel(MijnMaaltijdenHerkansingContext context)
         {
             _context = context;
+            //_userManager = userManager;
         }
 
-        public async Task<IActionResult> OnGetAsync(string uid)
+        public async Task<IActionResult> OnGetAsync(Guid? id)
         {
-            if (uid == null)
+            _Id = id;
+
+            if(id == null)
             {
                 return NotFound();
             }
 
-            Gebruiker = await _context.Gebruikers
-                .Include(g => g.Adres).FirstOrDefaultAsync(m => m.Id == uid);
+            Gebruiker = _context.Gebruikers.Find(id.ToString());
 
-            if (Gebruiker == null)
+            if(Gebruiker == null)
             {
                 return NotFound();
             }
+
+            Gebruiker.Adres = _context.Adressen.Find(Gebruiker.AdresId);
+
             return Page();
-
-            //DefaultValues();
-            //UserName = uid;
         }
+
 
         //private void DefaultValues()
         //{
