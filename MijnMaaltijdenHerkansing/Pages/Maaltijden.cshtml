@@ -2,6 +2,14 @@
 @model MijnMaaltijdenHerkansing.Pages.MaaltijdenModel
 @{ ViewData["Title"] = "Maaltijden"; }
 
+@using Microsoft.AspNetCore.Identity
+@using MijnMaaltijdenHerkansing.Data
+@using MijnMaaltijdenHerkansing.Models
+
+@inject SignInManager<Gebruiker> SignInManager
+@inject UserManager<Gebruiker> UserManager
+
+
 <style>
     .col-Gerecht {
         opacity: 0.7;
@@ -24,68 +32,69 @@
         </div>
 
         @*dit behouden voor de zekerheid
+            <div class="row justify-content-between w-100">
+                @foreach (Models.Post item in Model.Posts)
+                {
+                    <div class="col-sm-4 mb-4">
+                        <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+                            <div class="col-Gerecht m-2">
+                                <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="mw-100" type="submit" onclick="" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-Beschrijving m-2">
+                                <h7>@item.Beschrijving</h7>
+                            </div>
+                        </div>
+                    </div>}
+            </div>*@
+
+
         <div class="row justify-content-between w-100">
-            @foreach (Models.Post item in Model.Posts)
+            @foreach (Post item in Model.Posts)
             {
                 <div class="col-sm-4 mb-4">
-                    <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
-                        <div class="col-Gerecht m-2">
-                            <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="mw-100" type="submit" onclick="" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-Beschrijving m-2">
+                    <div class="card" style="width: 18rem;">
+                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="card-img-top mw-100" type="submit" />
+                        <div class="card-body">
+                            <a id="maaltijd" asp-area="Maaltijd" asp-page="/Index" asp-route-id="@item.PostId" title="Maaltijd">@item.Naam</a>
                             <h7>@item.Beschrijving</h7>
                         </div>
                     </div>
-                </div>}
-        </div>*@
-
-
-    <div class="row justify-content-between w-100">
-        @foreach (Models.Post item in Model.Posts)
-        {
-            <div class="col-sm-4 mb-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="card-img-top mw-100" type="submit" onclick="" />
-                    <div class="card-body">
-                        <h7>@item.Beschrijving</h7>
-                    </div>
                 </div>
-            </div>
-        }
+            }
 
 
 
 
-        @*dit behouden voor de zekerheid
-        <div class="row justify-content-between w-100">
-            @foreach (Models.Post item in Model.Posts)
-            {
-                <div class="col-sm-4 mb-4">
-                    <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
-                        <div class="col-Gerecht m-2">
-                            <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="mw-100" type="submit" onclick="" />
+            @*dit behouden voor de zekerheid
+                <div class="row justify-content-between w-100">
+                    @foreach (Models.Post item in Model.Posts)
+                    {
+                        <div class="col-sm-4 mb-4">
+                            <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+                                <div class="col-Gerecht m-2">
+                                    <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="mw-100" type="submit" onclick="" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-Beschrijving m-2">
+                                    <h7>@item.Beschrijving</h7>
+                                </div>
+                            </div>
+                        </div>}
+                </div>*@
+            @*
+                    Dit behouden voor zekerheid
+                    <div class="col-sm-4 mb-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="card-img-top mw-100" type="submit" onclick="" />
+                        <div class="card-body">
+                            <p class="card-text">ahahahahahahahahahahahahah</p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-Beschrijving m-2">
-                            <h7>@item.Beschrijving</h7>
-                        </div>
-                    </div>
-                </div>}
-        </div>*@
-        @*
-            Dit behouden voor zekerheid
-            <div class="col-sm-4 mb-4">
-            <div class="card" style="width: 18rem;">
-                <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="card-img-top mw-100" type="submit" onclick="" />
-                <div class="card-body">
-                    <p class="card-text">ahahahahahahahahahahahahah</p>
-                </div>
-            </div>
-        </div>*@
-    </div>
+                </div>*@
+        </div>
         <br>
     </div>
 </body>
