@@ -10,7 +10,6 @@
             height: 125px;
             margin: 10px;
             transition: opacity 1s;
-            opacity: 0.7;
 
         }
         .col-sm-2:hover {
@@ -20,7 +19,6 @@
 
         img {
             display: flex;
-            border-radius: 10px;
             align-items: center;
             justify-content: center;
             height: 100%;
@@ -30,20 +28,24 @@
             left: 0;
         }
 
-    .meer_maaltijden {
-    border: none;
-    color: white;
-    border-radius: 10px;
-    margin: 5px;
-    width: 150px;
-    height: 30px;
-    }
+        .meer_maaltijden {
+            border: none;
+            color: white;
+            border-radius: 10px;
+            margin: 5px;
+            width: 150px;
+            height: 30px;
+        }
 
         .row-1 {
-            width: 107%;
             margin-left: -15px;
             margin-top: -20px;
             padding:0;
+        }
+
+        h10 {
+            font-weight: bold;
+            text-align: center;
         }
 
     </style>
@@ -64,125 +66,25 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-2">
-                <div class="row">
-                    <div class="col rounded-top" style="background-color:gray">
-                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="rounded" type="submit" onclick="" />
+            @foreach (var item in Model.posts.Where(e => e.IsBevroren == false))
+            {
+                <div class="col-sm-2">
+                    <div class="row">
+                        <div class="col">
+                            <a asp-area="Maaltijd" asp-page="/Index" asp-route-id="@item.PostId">
+                                <img src="@Model._context.Maaltijden.Find(item.MaaltijdId).Afbeelding" class="rounded-top" type="submit" onclick="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row-1">
+                        <div class="col rounded-bottom" style="background-color:lightgray; height:40px; width: 10.313rem;">
+                            <h10>
+                                @item.Naam
+                            </h10>
+                        </div>
                     </div>
                 </div>
-                <div class="row-1">
-                    <div class="col rounded-bottom" style="background-color:lightgray; height:60px">
-                        <h10>
-                            ---------------------<br />
-                            ---------------------<br />
-                        </h10>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="row">
-                    <div class="col rounded-top" style="background-color:gray">
-                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="rounded" type="submit" onclick="" />
-                    </div>
-                </div>
-                <div class="row-1">
-                    <div class="col rounded-bottom" style="background-color:lightgray; height:60px">
-                        <h10>
-                            ---------------------<br />
-                            ---------------------<br />
-                        </h10>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="row">
-                    <div class="col rounded-top" style="background-color:gray">
-                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="rounded" type="submit" onclick="" />
-                    </div>
-                </div>
-                <div class="row-1">
-                    <div class="col rounded-bottom" style="background-color:lightgray; height:60px">
-                        <h10>
-                            ---------------------<br />
-                            ---------------------<br />
-                        </h10>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="row">
-                    <div class="col rounded-top" style="background-color:gray">
-                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="rounded" type="submit" onclick="" />
-                    </div>
-                </div>
-                <div class="row-1">
-                    <div class="col rounded-bottom" style="background-color:lightgray; height:60px">
-                        <h10>
-                            ---------------------<br />
-                            ---------------------<br />
-                        </h10>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="row">
-                    <div class="col rounded-top" style="background-color:gray">
-                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="rounded" type="submit" onclick="" />
-                    </div>
-                </div>
-                <div class="row-1">
-                    <div class="col rounded-bottom" style="background-color:lightgray; height:60px">
-                        <h10>
-                            ---------------------<br />
-                            ---------------------<br />
-                        </h10>
-                    </div>
-                </div>
-            </div>
-            
-            <!--
-        <div class="col-sm-2" style="background-color:gray">
-            <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" type="submit" onclick="" />
-        </div>
-        <div class="col-sm-2" style="background-color:gray">
-            <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" type="submit" onclick="" />
-        </div>
-        <div class="col-sm-2" style="background-color:gray">
-            <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" type="submit" onclick="" />
-        </div>
-        <div class="col-sm-2" style="background-color:gray">
-            <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" type="submit" onclick="" />
-        </div>
-        <div class="row">
-            <div class="col">
-
-            </div>
-            <div class="col">
-                <h10>
-                    -------------------------<br />
-                    -------------------------<br />
-                </h10>
-            </div>
-            <div class="col">
-                <h10>
-                    -------------------------<br />
-                    -------------------------<br />
-                </h10>
-            </div>
-            <div class="col">
-                <h10>
-                    -------------------------<br />
-                    -------------------------<br />
-                </h10>
-            </div>
-            <div class="col">
-                <h10>
-                    -------------------------<br />
-                    -------------------------<br />
-                </h10>
-            </div>
-        </div>
-        -->
+            }
         </div>
         <div class="row" style="height: 50px;"></div>
         <div class="row">
@@ -196,132 +98,25 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-2">
-                <div class="row">
-                    <div class="col rounded-top" style="background-color:gray">
-                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="rounded" type="submit" onclick="" />
+            @foreach (var item in Model.posts.Where(e => e.IsBevroren == true))
+            {
+                <div class="col-sm-2">
+                    <div class="row">
+                        <div class="col">
+                            <a asp-area="Maaltijd" asp-page="/Index" asp-route-id="@item.PostId">
+                                <img src="@Model._context.Maaltijden.Find(item.MaaltijdId).Afbeelding" class="rounded-top" type="submit" onclick="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row-1">
+                        <div class="col rounded-bottom" style="background-color:lightgray; height:40px; width: 10.313rem;">
+                            <h10>
+                                @item.Naam
+                            </h10>
+                        </div>
                     </div>
                 </div>
-                <div class="row-1">
-                    <div class="col rounded-bottom" style="background-color:lightgray; height:60px">
-                        <h10>
-                            ---------------------<br />
-                            ---------------------<br />
-                        </h10>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="row">
-                    <div class="col rounded-top" style="background-color:gray">
-                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="rounded" type="submit" onclick="" />
-                    </div>
-                </div>
-                <div class="row-1">
-                    <div class="col rounded-bottom" style="background-color:lightgray; height:60px">
-                        <h10>
-                            ---------------------<br />
-                            ---------------------<br />
-                        </h10>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="row">
-                    <div class="col rounded-top" style="background-color:gray">
-                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="rounded-top" type="submit" onclick="" />
-                    </div>
-                </div>
-                <div class="row-1">
-                    <div class="col rounded-bottom" style="background-color:lightgray; height:60px">
-                        <h10>
-                            ---------------------<br />
-                            ---------------------<br />
-                        </h10>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="row">
-                    <div class="col rounded-top" style="background-color:gray">
-                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="rounded" type="submit" onclick="" />
-                    </div>
-                </div>
-                <div class="row-1">
-                    <div class="col rounded-bottom" style="background-color:lightgray; height:60px">
-                        <h10>
-                            ---------------------<br />
-                            ---------------------<br />
-                        </h10>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="row">
-                    <div class="col rounded-top" style="background-color:gray">
-                        <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" class="rounded" type="submit" onclick="" />
-                    </div>
-                </div>
-                <div class="row-1">
-                    <div class="col rounded-bottom" style="background-color:lightgray; height:60px">
-                        <h10>
-                            ---------------------<br />
-                            ---------------------<br />
-                        </h10>
-                    </div>
-                </div>
-                <div class="row" style="height: 50px;"></div>
-            </div>
-            <!--<div class="row">
-            <div class="col-sm-2" style="background-color:gray">
-                <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" type="submit" onclick="" />
-            </div>
-            <div class="col-sm-2" style="background-color:gray">
-                <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" type="submit" onclick="" />
-            </div>
-            <div class="col-sm-2" style="background-color:gray">
-                <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" type="submit" onclick="" />
-            </div>
-            <div class="col-sm-2" style="background-color:gray">
-                <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" type="submit" onclick="" />
-            </div>
-            <div class="col-sm-2" style="background-color:gray">
-                <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" type="submit" onclick="" />
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h10>
-                        -------------------------<br />
-                        -------------------------<br />
-                    </h10>
-                </div>
-                <div class="col">
-                    <h10>
-                        -------------------------<br />
-                        -------------------------<br />
-                    </h10>
-                </div>
-                <div class="col">
-                    <h10>
-                        -------------------------<br />
-                        -------------------------<br />
-                    </h10>
-                </div>
-                <div class="col">
-                    <h10>
-                        -------------------------<br />
-                        -------------------------<br />
-                    </h10>
-                </div>
-                <div class="col">
-                    <h10>
-                        -------------------------<br />
-                        -------------------------<br />
-                    </h10>
-                </div>
-            </div>
-        </div>-->
-            <br />
+            }
         </div>
-        </div>
+    </div>
 </body>

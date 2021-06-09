@@ -112,111 +112,69 @@
                 <h1>@Model.post.Naam</h1>
             </div>
             <div class="col">
-                <form id="GebruikerForm" class="form-inline" asp-area="Profile" asp-page="/Index" asp-route-id="@Model.post.GebruikerId">
-                    <button id="Gebruiker" type="submit" class="btn btn-link text-dark">Gebruiker</button>
-                </form>
-                @*<img class="mx-5 d-block" style="width: 30px; border: solid black; border-radius: 50%;" src="~/img/pfp/ProfilePictureTemplate.png" />*@
-            </div>
-            @* AANPASKNOP
-                <div class="col">
-                <button class="rounded aanpasbutton" style="justify-content:end" type="button" onclick=""> Aanpassen </button>
-            </div>*@
-            <div class="col">
-                <h6 class="font-weight-bold">Populaire gerechten</h6>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4" style="background-color:gray">
-                <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" />
-                <div class="container d-flex justify-content-center mt-200">
+                <a href="/Profiel?id=@Model.post.GebruikerId" asp-area="Profile" asp-page="/Index" asp-route-id="@Model.post.GebruikerId">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="stars">
-                                <form action="">
-                                    <input class="star star-5" id="star-5" type="radio" name="star" />
-                                    <label class="star star-5" for="star-5"></label>
-                                    <input class="star star-4" id="star-4" type="radio" name="star" />
-                                    <label class="star star-4" for="star-4"></label>
-                                    <input class="star star-3" id="star-3" type="radio" name="star" />
-                                    <label class="star star-3" for="star-3"></label>
-                                    <input class="star star-2" id="star-2" type="radio" name="star" />
-                                    <label class="star star-2" for="star-2"></label>
-                                    <input class="star star-1" id="star-1" type="radio" name="star" />
-                                    <label class="star star-1" for="star-1"></label>
-                                </form>
-                            </div>
-                        </div>
+                        <img style="width: 30px; border: solid black; border-radius: 50%;" src="~/img/pfp/ProfilePictureTemplate.png" />
+                        <label style="font-weight: bold; pointer-events: none; text-decoration: none; color: black;">@Model.gebruiker.UserName</label>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <h3>€5,00</h3>
-                <h10>@Model.post.Beschrijving</h10>
-            </div>
-            <div class="col-lg-2" align-items:flex-end;">
-            </div>
-            <div class="col">
-                <h6 style="vertical-align:text-bottom">Titel</h6>
-                <div class="row-lg-2" style="background-color:gray; align-items:flex-end; width:184px;">
-                    <img src="~/img/meals/prei-stamppot-met-kip-ketjap-418x315.jpg" width="140" height="95" type="submit" onclick="" />
-                </div>
-                <div class="row-lg-1">
-                </div>
-                <h6 style="vertical-align:text-bottom">Titel</h6>
-                <div class="row-lg-2" style="background-color:gray; align-items:flex-end; width:184px;">
-                    <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" type="submit" onclick="" />
-                </div>
+
+                </a>
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-sm-4 rounded" style="background: url('@Model._context.Maaltijden.Find(Model.post.MaaltijdId).Afbeelding') no-repeat; background-size: 100%;">
+            </div>
+            <div class="col-sm-4"><h3>€5,00</h3></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="stars">
+                    <form action="">
+                        <input class="star star-5" id="star-5" type="radio" name="star" />
+                        <label class="star star-5" for="star-5"></label>
+                        <input class="star star-4" id="star-4" type="radio" name="star" />
+                        <label class="star star-4" for="star-4"></label>
+                        <input class="star star-3" id="star-3" type="radio" name="star" />
+                        <label class="star star-3" for="star-3"></label>
+                        <input class="star star-2" id="star-2" type="radio" name="star" />
+                        <label class="star star-2" for="star-2"></label>
+                        <input class="star star-1" id="star-1" type="radio" name="star" />
+                        <label class="star star-1" for="star-1"></label>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px">
+            <div class="col-sm-2">
+                <h5>Beschrijving:</h5>
+                <h10 style="color: dimgrey">@Model.post.Beschrijving</h10>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px">
+            <div class="form-check form-check-inline" style="margin:10px;">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="klein" value="option1">
+                <label class="form-check-label" for="klein">klein</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="middel" value="option2">
+                <label class="form-check-label" for="middel">middel</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="groot" value="option3">
+                <label class="form-check-label" for="groot">groot</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"  style="margin-top: 20px">
+                <h5>Ingrediënten</h5>
+                <h10 style="color: dimgrey">
+                    @Model.maaltijd.Ingredienten
+                </h10>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" style="margin-top: 20px">
                 <button class="rounded aanpasbutton" type="button" onclick=""> Bestel </button>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="form-check form-check-inline" style="margin:10px;">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="klein" value="option1">
-                    <label class="form-check-label" for="klein">klein</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="middel" value="option2">
-                    <label class="form-check-label" for="middel">middel</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="groot" value="option3">
-                    <label class="form-check-label" for="groot">groot</label>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h5>Ingrediënten</h5>
-                    <h10>
-                        @Model.maaltijd.Ingredienten
-                    </h10>
-                </div>
-                <div class="col-lg-2" style="align-items:flex-end;">
-                </div>
-                <div class="col-lg-2" style="align-items:flex-end;">
-                </div>
-                <div class="col-lg-2" style="align-items:flex-end; margin:9px;">
-                </div>
-                <div class="col">
-                    <h6 style="vertical-align:text-bottom">Titel</h6>
-                    <div class="row-lg-2" style="background-color:gray; align-items:flex-end; width:184px;">
-                        <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" type="submit" onclick="" />
-                    </div>
-                    <div class="row-lg-1">
-                    </div>
-                    <h6 style="vertical-align:text-bottom">Titel</h6>
-                    <div class="row-lg-2" style="background-color:gray; align-items:flex-end; width:184px;">
-                        <img src="prei-stamppot-met-kip-ketjap-418x315.jpg" type="submit" onclick="" />
-                    </div>
-                    <div class="row-lg-3">
-                    </div>
-                </div>
             </div>
         </div>
     </div>
