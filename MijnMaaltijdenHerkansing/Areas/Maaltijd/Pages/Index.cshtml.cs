@@ -12,7 +12,7 @@ namespace MijnMaaltijdenHerkansing.Pages
     public class MaaltijdModel : PageModel
     {
 
-        private readonly MijnMaaltijdenHerkansingContext _context;
+        public readonly MijnMaaltijdenHerkansingContext _context;
 
         [BindProperty]
         public int? _id { get; set; }
@@ -21,6 +21,8 @@ namespace MijnMaaltijdenHerkansing.Pages
         public Post post { get; set; }
 
         public Maaltijd maaltijd { get; set; }
+
+        public Gebruiker gebruiker { get; set; }
 
         public MaaltijdModel(MijnMaaltijdenHerkansingContext context)
         {
@@ -45,6 +47,7 @@ namespace MijnMaaltijdenHerkansing.Pages
             else
             {
                 maaltijd = _context.Maaltijden.Find(post.MaaltijdId);
+                gebruiker = _context.Gebruikers.Find(post.GebruikerId);
             }
 
             return Page();
